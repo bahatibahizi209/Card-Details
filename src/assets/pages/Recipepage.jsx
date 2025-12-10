@@ -1,6 +1,7 @@
 import { RefreshCcw } from "lucide-react";
 import FilterBar from "../../components/FilterBar";
 import RecipeGrid from "../../components/RecipeGrid";
+import RecipeModel from "../../components/RecipeModel";
     export default function Recipepage() {
       return (
         <div className="min-h-screen bg-light-neutral-200">
@@ -14,7 +15,7 @@ import RecipeGrid from "../../components/RecipeGrid";
         <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-10"></div>
 
           {/* conditional rendering */}
-           <div className="mt-8 p-8 bg-red-50 border border-red-200 rounded-2xl 
+           {/* <div className="mt-8 p-8 bg-red-50 border border-red-200 rounded-2xl 
           inline-block">
             <p className="text-red-600">Error</p>
             <button className="mt-4 inline-flex items-center px-6 py-3
@@ -22,15 +23,18 @@ import RecipeGrid from "../../components/RecipeGrid";
             transition-all duration-300 font-semibold">
               <RefreshCcw  classname="w-4 h-4 mr-2"/>
             </button>
-          </div>
+          </div> */}
         <div className="py-6">
           <div className="container mx-auto px-4">
             <FilterBar/>
           </div>
         </div>
+        <div className="contianer mx-auto px-4 py-12">
         <RecipeGrid/>
           </div> 
         </div>
+        <RecipeModel/>
+    </div>
       )
     }
     
