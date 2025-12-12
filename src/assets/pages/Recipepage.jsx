@@ -33,7 +33,7 @@ import RecipeModel from "../../components/RecipeModel";
         <RecipeGrid/>
           </div> 
         </div>
-        <RecipeModel/>
+        {/* <RecipeModel/> */}
     </div>
       )
     }
