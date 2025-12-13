@@ -2,7 +2,31 @@ import { RefreshCcw } from "lucide-react";
 import FilterBar from "../../components/FilterBar";
 import RecipeGrid from "../../components/RecipeGrid";
 import RecipeModel from "../../components/RecipeModel";
-    export default function Recipepage() {
+import { useRecipe } from "../hooks/UseRecipe";
+import { useMemo, useState } from "react";
+
+export default function Recipepage() {
+  const [searchTerm,setSearchTerm]=useState("");
+  const [maxPrepTime,setMaxPrepTime]=useState(30);
+  const [maxCookTime,setMaxCookTime]=useState(30);
+  const [selectedCategory,setSelectedCategory]=useState("");
+  const [selectedRecipe,setSelectedRecipe]=useState(null);
+  const [isModelOpen,setIsModelOpen]=useState(false);
+  const {
+  recipes,
+  loading,
+  error,
+  searchRecipes,
+  fetchRecipeByCategory,
+  refetch:fetchRandomRecipes
+  }=useRecipe();
+  const filteredRecipes=useMemo(()=>{
+    return recipes.filter((recipe)=>{
+    const matchesPrepTime=recipe.prepTime <= maxPrepTime;
+    const matchCookTime=recipe.cookTime <= maxCookTime;
+    return matchesPrepTime && matchCookTime;
+    })
+  },[recipes,maxPrepTime,maxCookTime])
       return (
         <div className="min-h-screen bg-light-neutral-200">
           <div className="container mx-auto px-4 py-12 text-center">
