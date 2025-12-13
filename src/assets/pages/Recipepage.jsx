@@ -12,6 +12,31 @@ export default function Recipepage() {
   const [selectedCategory,setSelectedCategory]=useState("");
   const [selectedRecipe,setSelectedRecipe]=useState(null);
   const [isModelOpen,setIsModelOpen]=useState(false);
+  const handleSearch=async(term)=>{
+    if(term.trim()){
+      await searchRecipes(term)
+    }
+    else{
+      await refetch();
+    }
+  }
+  const handleCategoryChange = async (category)=>{
+    setSelectedCategory(category);
+    if(category){
+      await fetchRecipeByCategory(category)
+    }else{
+      await refetch();
+    }
+  }
+  const handleViewRecipe=(recipe)=>{
+    setSelectedRecipe(recipe);  
+    setIsModelOpen(true);
+  }
+  const handleCloseModel=()=>{
+    setIsModelOpen(false);
+    setSelectedCategory(null)
+
+  }
   const {
   recipes,
   loading,
@@ -39,7 +64,8 @@ export default function Recipepage() {
         <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-10"></div>
 
           {/* conditional rendering */}
-           {/* <div className="mt-8 p-8 bg-red-50 border border-red-200 rounded-2xl 
+          {error && (
+          <div className="mt-8 p-8 bg-red-50 border border-red-200 rounded-2xl 
           inline-block">
             <p className="text-red-600">Error</p>
             <button className="mt-4 inline-flex items-center px-6 py-3
@@ -47,14 +73,15 @@ export default function Recipepage() {
             transition-all duration-300 font-semibold">
               <RefreshCcw  classname="w-4 h-4 mr-2"/>
             </button>
-          </div> */}
+          </div>
+          )}
         <div className="py-6">
           <div className="container mx-auto px-4">
             <FilterBar/>
           </div>
         </div>
         <div className="contianer mx-auto px-4 py-12">
-        <RecipeGrid/>
+        <RecipeGrid recipes={filteredRecipes} onViewRecipe={handleViewRecipe} isLoading={loading} />
           </div> 
         </div>
         {/* <RecipeModel/> */}
