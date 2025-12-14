@@ -77,14 +77,27 @@ export default function Recipepage() {
           )}
         <div className="py-6">
           <div className="container mx-auto px-4">
-            <FilterBar/>
+            <FilterBar
+            maxPrepTime={maxPrepTime}
+            setMaxPrepTime={setMaxPrepTime}
+            maxCookTime={maxCookTime}
+            setMaxCookTime={setMaxCookTime}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            onSearch={handleSearch}
+            onCategoryChange={handleCategoryChange}
+            selectedCategory={selectedCategory}
+            />
           </div>
         </div>
         <div className="contianer mx-auto px-4 py-12">
         <RecipeGrid recipes={filteredRecipes} onViewRecipe={handleViewRecipe} isLoading={loading} />
           </div> 
         </div>
-        {/* <RecipeModel/> */}
+        <RecipeModel 
+        recipes={selectedRecipe}
+        isOpen={isModelOpen}
+        onClose={handleCloseModel}/>
     </div>
       )
     }

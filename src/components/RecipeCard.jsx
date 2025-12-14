@@ -32,12 +32,14 @@ function RecipeCard({recipe,onViewRecipe}) {
     <div className="flex items-center justify-between mb-4 text-sm text-gray-500">
     <div className="flex items-center space-x-1">
     <Clock className="w-4 h-4"/>
-    <span>Cook:{recipe.cookTime} </span>
+    <span>Cook:{recipe.cookTime
+    } </span>
     </div>
     </div>
     <button className="w-full bg-primary text-white py-4 rounded-2xl
     font-semibold hover:from-orange-600 hover:to-teal-700 transition-all
-    duration-300 shadow-lg hover:shadow-xl hover:cursor-pointer">View Recipe</button>
+    duration-300 shadow-lg hover:shadow-xl hover:cursor-pointer"
+    onClick={()=>onViewRecipe(recipe)}>View Recipe</button>
     </div>
     </div>
   )

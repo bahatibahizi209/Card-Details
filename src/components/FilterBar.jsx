@@ -1,6 +1,8 @@
 import { ChevronDown, Search } from "lucide-react"
 
-function FilterBar() {
+function FilterBar({maxCookTime,maxPrepTime,onSearch,
+  onCategoryChange,searchTerm, setMaxPrepTime,
+ setMaxCookTime,setSearchTerm,selectedCategory}) {
   return (
     <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl
     mb-12 border border-orange-100">
