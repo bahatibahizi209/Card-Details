@@ -42,7 +42,7 @@ export const useRecipe=()=>{
         try {
             setLoading(true);
             setError(null);
-            const apiRecipes=await recipeApi.getCategories(category);
+            const apiRecipes=await recipeApi.getByCategory(category);
             const detailedRecipes=await Promise.all(apiRecipes.slice(0,8).map(async(recipe)=>{
             const detailed=await recipeApi.getRecipeById(recipe.idMeal);
             return transformRecipe(detailed);

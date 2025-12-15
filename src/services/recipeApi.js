@@ -92,8 +92,26 @@ export const recipeApi = {
       return [];
     }
   },
-};
+  getByCategory: async(category)=>{
+    const cacheKey=`category-${category}`;
+    if(cache.has(cacheKey)){
+      return cache.get(cacheKey);
+    }
+        try {
+      const response = await fetch(
+        `${API_BASE_URL}/filter.php?c=${category}`
+      );
+      const data = await response.json();
+      const result = data.meals || [];
 
+      cache.set(cacheKey, result);
+      return result;
+    } catch (error) {
+      console.error("Error search recipes", error);
+      return [];
+    }
+  },
+  };
 // Split instructoins into steps
 export const transformRecipe = (apiRecipe) => {
   if (!apiRecipe) return null;
@@ -156,7 +174,6 @@ export const transformRecipe = (apiRecipe) => {
     tags: [
       apiRecipe.strArea?.toLowerCase(),
       apiRecipe.strCategory?.toLowerCase(),
-      "api_recipe",
     ].filter(Boolean),
   };
 };

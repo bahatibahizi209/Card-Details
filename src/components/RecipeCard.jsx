@@ -3,9 +3,9 @@ import { Clock, User, Users } from "lucide-react"
 function RecipeCard({recipe,onViewRecipe}) {
   return (
     <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl
-    transition-all duration-500 overflow-hidden group transform hover:scale-105 ">
+    transition-all duration-500 overflow-hidden group transform hover:scale-105 hover:cursor-pointer ">
     <div className="relative">
-    <img src={recipe.image} alt="" className="w-full h-56 object-cover group-hover:scale-110
+    <img src={recipe.image} alt="" className="w-full h-56 object-cover group-hover:scale-100
     transition-all duration-500" />
     <div className="absolute inset-0 bg-gradient-to-t from-black/20
     to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">

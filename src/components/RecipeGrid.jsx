@@ -36,6 +36,7 @@ function RecipeGrid({recipes,onViewRecipe,isLoading}) {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
     {recipes.map((recipe)=>(
     <RecipeCard recipe={recipe} onViewRecipe={onViewRecipe}/>
+    
     ))}
 
     </div>
