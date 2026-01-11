@@ -1,4 +1,4 @@
-import { Plus, Search } from "lucide-react"
+import { Edit, Edit2, Plus, Search, Trash2 } from "lucide-react"
 
 function RecordTable() {
   return (
@@ -56,8 +56,25 @@ function RecordTable() {
     </thead>
     <tbody className="divide-y divide-gray-200">
     {/* conditional rendering */}
-    <tr className="px-6 py-12">
-    <th>sasa</th>
+    <tr className="px-6 py-12 text-center text-gray-500" col-span={6}>
+      <td colSpan="6">No Record Found</td>
+    </tr>
+    {/* else */}
+    {/* use map method */}
+    <tr className="hover:bg-gray-50 transition-colors">
+    <td className="px-6 py-2 whitespace-nowrap text-sm text-gray-900">1</td>
+    <td className="px-6 py-2 whitespace-nowrap text-sm text-gray-900">John Doe</td>
+    <td className="px-6 py-2 whitespace-nowrap text-sm text-gray-900">john@gmail.com</td>
+    <td className="px-6 py-2 whitespace-nowrap text-sm text-gray-900">078863648</td>
+    <td className="px-6 py-2 whitespace-nowrap text-sm text-gray-900">Full stack developer</td>
+    <td className="px-6 py-2 whitespace-nowrap text-sm text-gray-900">
+    <button className="flex items-center gap-1 bg-blue-600 text-white px-3 py-1.5 rounded 
+    hover:bg-blue-700 transition-all text-sm font-medium hover:cursor-pointer">
+    <Edit2 size={16}/>Edit</button>
+    <button className="flex items-center gap-1 bg-red-600 text-white px-3 py-1.5 rounded 
+    hover:bg-red-700 transition-all text-sm font-medium hover:cursor-pointer">
+    <Trash2 size={16}/>Delete</button>
+    </td>
     </tr>
     </tbody>
     </table>
