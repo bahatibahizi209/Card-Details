@@ -53,7 +53,7 @@ function RecordTable() {
     ACTIONS
     </th>
     </tr>
-    </thead>
+    </thead>  
     <tbody className="divide-y divide-gray-200">
     {/* conditional rendering */}
     <tr className="px-6 py-12 text-center text-gray-500" col-span={6}>

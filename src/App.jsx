@@ -1,9 +1,7 @@
-import RecordTable from "./components/Recordtable";
-
-
+import CardForm from "./components/Cardform";
 function App() {
 return(
-<RecordTable/>
+<CardForm/>
 );
 }
 
