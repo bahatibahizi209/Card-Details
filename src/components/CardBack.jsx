@@ -11,6 +11,24 @@ function CardBack() {
     <span className="text-gray-800 font-mono text-2xl font-bold tracking-widest">000</span>
     </div>
      </div>
+     {/* Footer info */}
+     <div className="px-8 mt-6 flex justify-between items-end">
+      <div className="text-gray-400 text-xs leading-relaxed">
+      This card is property of the cardholder <br/>
+      Misuse is a criminal offense
+      <br/>
+       <br/>
+      For Customer service:
+      <br />
+      call 1-800-XXX-XXX
+      </div>
+      <div className="flex flex-col items-end gap-2">
+      <div className="flex items-center -space-x-2">
+      <div className="w-9 h-9 bg-red-500 rounded-full"></div>
+      <div className="w-9 h-9 bg-amber-500 rounded-full"></div>
+      </div>
+      </div>
+     </div>
     </div>
   )
 }
