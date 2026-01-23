@@ -12,8 +12,9 @@ function CardFront() {
     <div className="w-14 h-11 bg-gradient-to-br from-yellow-200 to-yellow-400 rounded-lg
     flex items-center justify-center">
     <div className="w-10 h-7 bg-gradient-to-br from-yellow-400 to-yellow-600"></div>
-    <div className="w-10 h-10 border-2 border-white rounded-full"></div>
+
     </div>
+        <div className="w-10 h-10 border-2 border-white rounded-full"></div>
     </div>
     </div>
     {/* card number */}

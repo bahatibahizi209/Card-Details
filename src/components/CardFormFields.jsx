@@ -42,12 +42,13 @@ function CardFormFields() {
       <Shield size={14}/>
       <span>SSL Secure</span>
       </div>
+      <div className="bg-gray-300 w-1 h-1 rounded-full"/>
       <div className="flex items-center gap-1.5">
       <Lock size={14}/>
       <span>PCI Compliant</span>
       </div>
       </div>
-      </div> ~
+      </div> 
       </form>
       ) 
       }
