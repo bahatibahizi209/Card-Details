@@ -4,7 +4,6 @@ import CardFormFields from "./CardFormFields"
 import CardPreview from "./cardpreview"
 import { number } from "prop-types"
 import formatCardNumber from "../utils/formatcardnumber"
-[[]]
 function CardForm() {
 
   const [cardData,setCardData]=useState({
@@ -25,8 +24,30 @@ function CardForm() {
       }
       return;
     }
+  if(field === "expMonth"){
+  const v =value.replace(/[^0-9]/g, "");
+  if(v.length <=2){
+    setCardData((prev)=>({...prev,expMonth:v}));
   }
-
+  return;
+  }
+  if(field === "expYear"){
+  const v =value.replace(/[^0-9]/g, "");
+  if(v.length <=2){
+    setCardData((prev)=>({...prev,expYear:v}));
+  }
+  return;
+  }
+  if(field === "cvc"){
+  const v =value.replace(/[^0-9]/g, "");
+  if(v.length <=2){
+    setCardData((prev)=>({...prev,cvc:v}));
+  }
+  return;
+  }
+  setCardData((prev)=>({...prev,[field]:value}));
+}
+// CARD FORM
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900
     to-blue-900 flex items-center justify-center p-6">
