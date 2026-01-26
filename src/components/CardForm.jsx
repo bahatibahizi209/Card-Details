@@ -56,6 +56,15 @@ function CardForm() {
 }
 const OnFocusCvc=()=>setFlipped(true)
 const  OnBlurCvc=()=>setFlipped(false)
+
+const validateAll=()=>{
+const errors={};
+const name=(cardData.name|| "").trim();
+const number=(cardData.number || "").replace(/\s/g, "");
+const expMonth=cardData.expMonth || "";
+const expYear=cardData.expYear || "";
+const cvc=cardData.cvc || "";
+}
 // CARD FORM
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900
