@@ -64,7 +64,39 @@ const number=(cardData.number || "").replace(/\s/g, "");
 const expMonth=cardData.expMonth || "";
 const expYear=cardData.expYear || "";
 const cvc=cardData.cvc || "";
+
+if(!name) errors.name="Cardholder name is required.";
+if(!/^\d{16}$/.test(number)){
+  errors.number="card number must be 16 digits"
 }
+const month=parseInt(expMonth,10);
+if(!/^\d{1,2}$/.test(expMonth) || month < 1 || month > 12){
+  errors.expMonth="invalid month";
+}
+if(!/^\d{2}$/.test(expYear)){
+  errors.expYear="Enter 2-digit year";
+}
+if(!errors.expYear && !errors.expMonth){
+  const now=new Date();
+  const  currentYear=parseInt(String(now.getFullYear()).slice(-2),10)
+  const currentMonth=now.getMonth()+1;
+  const year=parseInt(expYear,10);
+  const yearfull=2000+year;
+  if(year < currentYear ||(year === currentYear && month < currentMonth) ){
+    errors.expMonth="card has expired";
+    errors.expYear="card has expired";
+  }
+  if(year>currentYear +25){
+    errors.expYear="Enter a valid year";
+  }
+  if(/^\d{3}$/.test(cvc)){
+    errors.cvc="cvc must be 3 digits";
+  }
+  return errors;
+}
+}
+
+
 // CARD FORM
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900
