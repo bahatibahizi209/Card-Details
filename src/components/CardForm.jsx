@@ -103,7 +103,7 @@ const onSubmit=(e)=>{
     alert("Success! Card details are valid.")
   }else{
     if(validate.cvc)setFlipped(true)
-      
+
   }
 }
 
@@ -115,7 +115,7 @@ const onSubmit=(e)=>{
     <div className="w-full max-w-6xl">
     <div className="grid lg:grid-cols-2 gap-12 items-center">
     {/* left preview card */}
-    <CardPreview />
+    <CardPreview cardData={cardData} flipped={flipped} />
     {/* Right Form */}
     <CardFormFields/>
     </div>
