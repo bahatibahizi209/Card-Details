@@ -2,7 +2,7 @@
 import { useState } from "react"
 import CardFormFields from "./CardFormFields"
 import CardPreview from "./cardpreview"
-import { number } from "prop-types"
+import { number, object } from "prop-types"
 import formatCardNumber from "../utils/formatcardnumber"
 function CardForm() {
 
@@ -89,11 +89,22 @@ if(!errors.expYear && !errors.expMonth){
   if(year>currentYear +25){
     errors.expYear="Enter a valid year";
   }
+}
   if(/^\d{3}$/.test(cvc)){
     errors.cvc="cvc must be 3 digits";
   }
   return errors;
 }
+const onSubmit=(e)=>{
+  if(e && e.preventDefault) e.preventDefault()
+  const validate=validateAll()
+  setErrors(validate)
+  if(object.keys(validate).length === 0){
+    alert("Success! Card details are valid.")
+  }else{
+    if(validate.cvc)setFlipped(true)
+      
+  }
 }
 
 
